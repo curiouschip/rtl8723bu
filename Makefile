@@ -343,6 +343,9 @@ install:
 modules_install:
 	$(MAKE) INSTALL_MOD_DIR=$(MODDESTDIR) -C $(KSRC) M=$(shell pwd) modules_install
 
+firmware_install:
+	install rtl8723b_fw.bin -D $(FW_DIR)/rtl8723_fw.bin
+
 uninstall:
 	rm -f $(MODDESTDIR)$(MODULE_NAME).ko
 	$(DEPMOD) -a ${KVER}
